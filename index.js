@@ -7,7 +7,11 @@ const flash = require ('express-flash')
 const app = express()
 
 const conn = require('./db/conn')
-const { DataTypes } = require('sequelize')
+
+//Models
+
+const Tought = require('./models/Tought')
+const User = require('./models/User')
 
 //Tamplate engine
 app.engine('handlebars', exphbs())
@@ -54,6 +58,7 @@ app.use((req, res, next)=> {
 
 conn
 .sync()
+//.sync({force: true})
 .then(()=>{
     app.listen(3000, ()=>{
         console.log('Conectado na porta 3000')
