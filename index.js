@@ -8,14 +8,15 @@ const app = express()
 
 const conn = require('./db/conn')
 
-//Models
-
+//Import Models
 const Tought = require('./models/Tought')
 const User = require('./models/User')
 
-// Routes
-
+// Import Routes
 const toughtRoutes = require('./routes/toughtRoutes')
+const authRoutes = require('./routes/authRoutes')
+
+// Import Controllers
 const ToughtController = require('./constollers/ToughtController')
 
 //Tamplate engine
@@ -45,15 +46,12 @@ app.use(
 )
 
 //Flash Message
-
 app.use(flash())
 
 //Public Path
-
 app.use(express.static('public'))
 
 //Set Session to res
-
 app.use((req, res, next)=> {
     if(req.session.userId){
         res.locals.session = req.session
@@ -62,8 +60,8 @@ app.use((req, res, next)=> {
 }) 
 
 //Routes
-
 app.use('/toughts', toughtRoutes)
+app.use('/', authRoutes)
 
 app.get('/', ToughtController.showTough)
 
