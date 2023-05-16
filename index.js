@@ -24,6 +24,12 @@ app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
 
 //Receber resposta do body
+app.use(
+    express.urlencoded({
+      extended: true,
+    }),
+  )
+  
 app.use(express.json())
 
 // Session Midlleware
