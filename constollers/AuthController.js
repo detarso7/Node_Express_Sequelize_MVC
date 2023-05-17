@@ -34,8 +34,7 @@ module.exports = class AuthController {
             return
         }
 
-        // Create a Password
-
+        // Create a Hash Password
         const salt = bcrypt.genSaltSync(10)
         const hashedPassword = bcrypt.hashSync(password, salt)
 
@@ -47,9 +46,19 @@ module.exports = class AuthController {
 
         try {
             
-            await User.create(user)
+            const creatUser = await User.create(user)
+
+            // Initialize Session
+            req.session.userid = creatUser.id 
+
             req.flash('message', 'Cadastro realizado com sucesso!')
-            res.redirect('/')    
+
+            // Save Session
+            req.session.save(()=>{
+                 res.redirect('/') 
+            })
+
+              
 
         } catch (error) {
 
