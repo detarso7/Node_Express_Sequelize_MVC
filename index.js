@@ -29,7 +29,7 @@ app.use(
       extended: true,
     }),
   )
-  
+
 app.use(express.json())
 
 // Session Midlleware
