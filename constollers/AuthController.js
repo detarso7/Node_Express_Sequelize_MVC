@@ -12,6 +12,7 @@ module.exports = class AuthController {
         res.render('auth/register')
     }
 
+    // Metodo Register User
     static async registerPost (req, res){
         console.log(req.body)
         const {name, email, password, confirmpassword} = req.body
@@ -34,7 +35,7 @@ module.exports = class AuthController {
             return
         }
 
-        // Create a Hash Password
+        // Metodo Create a Hash Password
         const salt = bcrypt.genSaltSync(10)
         const hashedPassword = bcrypt.hashSync(password, salt)
 
@@ -57,10 +58,8 @@ module.exports = class AuthController {
             req.session.save(()=>{
                  res.redirect('/') 
             })
-
-              
-
-        } catch (error) {
+        }  
+        catch (error) {
 
             console.log(error)
 
@@ -68,7 +67,7 @@ module.exports = class AuthController {
 
     }
 
-        // Login
+        // Metodo Login
     static async loginPost (req, res){
 
         const {email, password}= req.body
@@ -85,7 +84,6 @@ module.exports = class AuthController {
 
 
         // Match Password
-
         const passwordMatch = bcrypt.compareSync(password, user.password)
 
         if(!passwordMatch){
@@ -103,7 +101,7 @@ module.exports = class AuthController {
 
         }
 
-        // Logout
+        // Metodo Logout
     static logout (req, res){
         req.session.destroy()
         res.redirect('/login')
