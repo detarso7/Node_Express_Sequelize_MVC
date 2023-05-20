@@ -24,7 +24,14 @@ module.exports = class ToughtController{
         // Separando os Pensamentos
         const toughts = user.Toughts.map((result) => result.dataValues)
 
-        res.render('toughts/dashboard', {toughts})
+        // Checando lista vazia
+        let emptyToughts = false
+
+        if (toughts.length === 0){
+            emptyToughts = true
+        }
+
+        res.render('toughts/dashboard', {toughts, emptyToughts})
     }
 
     static createTought(req, res){
@@ -64,6 +71,35 @@ module.exports = class ToughtController{
 
             req.flash('message', 'Pensamento removido com sucesso')
          
+            req.session.save(()=>{
+                res.redirect('/toughts/dashboard')
+            }) 
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    static async toughtEdit(req, res){
+        const id = req.params.id
+        const UserId = req.session.userid
+
+        const toughts = await Tought.findOne({where: {id: id, UserId: UserId}, raw: true})
+
+        res.render('toughts/edit', {toughts})
+    }
+
+    static async toughtEditPost (req, res){
+        const {id, title} = req.body
+        const UserId = req.session.userid
+
+        try {
+
+            await Tought.update(title, {where: {id: id, UserId: UserId}})
+
+            req.flash('message', 'Pensamento ATUALIZADO com sucesso')
+             
             req.session.save(()=>{
                 res.redirect('/toughts/dashboard')
             }) 

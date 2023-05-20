@@ -195,6 +195,10 @@ color: #f6982d;
     border-bottom: 1px solid #f6982d;
 }
 
+.dashboard a{
+    color: #f6982d;
+}
+
 .dashboard .actions{
     display: flex;
 
