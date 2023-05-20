@@ -23,7 +23,6 @@ module.exports = class ToughtController{
 
         // Separando os Pensamentos
         const toughts = user.Toughts.map((result) => result.dataValues)
-        console.log(toughts)
 
         res.render('toughts/dashboard', {toughts})
     }
@@ -48,6 +47,26 @@ module.exports = class ToughtController{
             req.session.save(()=>{
                 res.redirect('/toughts/dashboard')
             })
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    static async toughtDelete (req, res){
+        const id = req.body.id
+        const UserId = req.session.userid
+
+        try {
+
+            await Tought.destroy({where: {id: id, UserId: UserId}})
+
+            req.flash('message', 'Pensamento removido com sucesso')
+         
+            req.session.save(()=>{
+                res.redirect('/toughts/dashboard')
+            }) 
 
         } catch (error) {
             console.log(error)
