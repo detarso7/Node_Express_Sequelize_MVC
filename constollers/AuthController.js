@@ -51,7 +51,7 @@ module.exports = class AuthController {
 
             // Initialize Session
             req.session.userid = creatUser.id 
-
+            consolelog(req.session.userid )
             req.flash('message', 'Cadastro realizado com sucesso!')
 
             // Save Session
