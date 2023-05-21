@@ -6,12 +6,14 @@ const {Op} = require('sequelize')
 module.exports = class ToughtController{
     static async showTough(req, res) {
 
+        // Pesquisa
         let search = ''
 
         if(req.query.search){
             search = req.query.search
         }
 
+        // Ordenação
         let order = 'DESC'
 
         if(req.query.order === 'old'){
@@ -20,6 +22,7 @@ module.exports = class ToughtController{
             order = 'DESC'
         }
 
+        
         const toughtsData =  await Tought.findAll({
             include: User,
             where: {title: {[Op.like]: `%${search}%`}},
