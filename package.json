@@ -4,7 +4,7 @@
   "description": "Estudo completo de uma aplicação em Node utilizando arquitetura MVC",
   "main": "index.js",
   "engines": {
-    "node":"v14.17.4"
+    "node": "v14.17.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,6 +24,7 @@
     "express-session": "^1.17.2",
     "mysql2": "^2.3.0",
     "nodemon": "^2.0.12",
+    "pg": "^8.11.0",
     "sequelize": "^6.6.5",
     "session-file-store": "^1.5.0"
   }
