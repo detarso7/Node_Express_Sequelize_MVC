@@ -37,6 +37,7 @@ app.use(
     session({
         name: 'session',
         secret: 'nosso_secret',
+        resave: false,
         saveUninitialized: false,
         store: new FileStore({
             logFn: function () {},
