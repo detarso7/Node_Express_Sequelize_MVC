@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Estudo completo de uma aplicação em Node utilizando arquitetura MVC",
   "main": "index.js",
+  "engines": {
+    "node":"v14.17.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js localhost 3000"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Saulo de Tarso - de_tarso7@hotmail.com - www.saulodetarso.ml",
