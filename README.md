@@ -12,10 +12,11 @@
 
   <h2>Funcionalidades</h2>
   <ul>
-    <li>Adicionar tarefas à lista de TODOs</li>
-    <li>Marcar tarefas como concluídas</li>
-    <li>Remover tarefas da lista</li>
-    <li>Visualizar a lista de TODOs</li>
+    <li>Adiciona pensamentos</li>
+    <li>Faz buscas por termo relacionado</li>
+    <li>Organiza lista por ordem</li>
+    <li>Cadastro de Usuário</li>
+    <li>Dashboard</li>
   </ul>
 
   <h2>Tecnologias utilizadas</h2>
@@ -30,7 +31,8 @@
     <li>Clone este repositório: <code>git clone &lt;URL do repositório&gt;</code></li>
     <li>Navegue até o diretório do projeto: <code>cd &lt;nome do diretório&gt;</code></li>
     <li>Instale as dependências: <code>npm install</code></li>
-    <li>Configure o arquivo conn.js assim:</li>
+    <li>Crie um banco de dados MySQL ou Postgres</li>
+    <li>Configure o arquivo conn.js assim para database MySQL:</li>
     <ol type="a">
           const sequelize = new Sequelize('banco', 'usuario', 'senha', { 
               host: 'localhost',
