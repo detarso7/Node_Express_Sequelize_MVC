@@ -14,7 +14,7 @@ module.exports = class AuthController {
 
     // Metodo Register User
     static async registerPost (req, res){
-        console.log(req.body)
+        console.log('Dados do cadastro ' + req.body)
         const {name, email, password, confirmpassword} = req.body
 
         // password match validation
@@ -51,7 +51,7 @@ module.exports = class AuthController {
 
             // Initialize Session
             req.session.userid = creatUser.id 
-            consolelog(req.session.userid )
+            console.log(req.session.userid )
             req.flash('message', 'Cadastro realizado com sucesso!')
 
             // Save Session
@@ -74,7 +74,7 @@ module.exports = class AuthController {
 
         // Check User
         const user = await User.findOne({where: {email: email}})
-
+        console.log(user)
         if(!user){
             req.flash('message', 'O e-mail não cadastrado!')
             res.render('auth/login')

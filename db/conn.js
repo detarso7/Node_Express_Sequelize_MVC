@@ -1,8 +1,7 @@
 const {Sequelize} = require('sequelize')
 
-const sequelize = new Sequelize (
-        'postgres://gksdtxus:TviBo4h-ZC-bSbaqqu_l-0EX0aTZ8ARl@silly.db.elephantsql.com/gksdtxus', {
-        dialect: 'postgres'
+const sequelize = new Sequelize ('postgres://qhpqdmdj:FhVUPiWtk5n_Qx7iSy1QFraYzYn7WmCT@silly.db.elephantsql.com/qhpqdmdj', {
+  dialect: 'postgres'
 })
 
 try {
