@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 </head>
 <body>
-  <h1>Aplicativo Thinking/h1>
+  <h1>Aplicativo Thinking</h1>
 
   <p>Deploy feito utilizando os serviços gratuitos da Cyclic e o banco de dados hospedado no Elephant</p>
   https://app-node-lista-pensamentos.cyclic.app/
