@@ -7,7 +7,7 @@
 <body>
   <h1>Aplicativo Thinking</h1>
 
-  <p>Deploy feito utilizando os serviços gratuitos da Cyclic e o banco de dados hospedado no Elephant</p>
+  <p>Deploy feito utilizando o serviço gratuito da Cyclic e o banco de dados hospedado no Elephant</p>
   https://app-node-lista-pensamentos.cyclic.app/
 
   <h2>Funcionalidades</h2>
